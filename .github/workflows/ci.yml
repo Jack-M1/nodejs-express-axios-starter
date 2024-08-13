@@ -1,0 +1,21 @@
+Name: Node ci
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js v20.16.0
+        uses: actions/setup-node@v4
+
+      - name: Run ci
+        run: npm ci
+        
