@@ -5,6 +5,8 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  schedule:
+    cron: '0, 12 * * *'
 
 jobs:
   build:
@@ -18,11 +20,8 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: maven
-          
-      - name: Run ESLint
-        run: npm install eslint -DE   
+          cache: maven 
 
-      - name: Run linter
-        run: npm run linter
+      - name: Run audit
+        run: npm run audit
         
