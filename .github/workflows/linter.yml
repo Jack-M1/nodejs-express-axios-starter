@@ -19,5 +19,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
+      - name: Run ESLint
+        run: npm install eslint -DE   
+
       - name: Run linter
         run: npm run linter
+        
